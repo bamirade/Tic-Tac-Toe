@@ -1,0 +1,6 @@
+retro theme:
+    color palettte: rgb(85,91,255) 0px 0px 0px 3px,rgb(31,193,27) 0px 0px 0px 6px,rgb(255,217,19) 0px 0px 0px 9px,rgb(255,156,85) 0px 0px 0px 12px,rgb(255,85,85) 0px 0px 0px 15px
+    crt style display : cover- w/ shadow(218 206 182) w/out (231 228 211)
+    button at bottom
+
+screen pages (screen one = title (Tic-Tac-Toe/ press any key to play), screen two = main menu (2 players/ vs computer) screen three = game)

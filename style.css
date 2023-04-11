@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, rgba(85, 91, 255, 0.5) 0%, rgba(85, 91, 255, 0.5) 20%, rgba(31, 193, 27, 0.5) 20%, rgba(31, 193, 27, 0.5) 40%, rgba(255, 217, 19, 0.5) 40%, rgba(255, 217, 19, 0.5) 60%, rgba(255, 156, 85, 0.5) 60%, rgba(255, 156, 85, 0.5) 80%, rgba(255, 85, 85, 0.5) 80%, rgba(255, 85, 85, 0.5) 100%);
+    background-size: 100% 20%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 500px;
+}
+
+.crt {
+    margin: 3vmin auto;
+    padding: 5.5vmin;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3f3933;
+    border-radius: 0.5rem;
+}
+
+.screen {
+    position: relative;
+    border: 30px solid transparent;
+    border-image-source: url(screen.png);
+    border-image-slice: 30 fill;
+    border-image-outset: 0;
+    overflow: hidden;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 0px;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    width: 500px;
+    aspect-ratio: 1/1;
+    max-height: 90vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 0px;
+    border: 3px solid green;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container.one {
+    border-top: none;
+    border-left: none;
+}
+
+.container.two {
+    border-top: none;
+}
+
+.container.three {
+    border-top: none;
+    border-right: none;
+}
+
+.container.four {
+    border-left: none;
+}
+
+.container.six {
+    border-right: none;
+}
+
+.container.seven {
+    border-left: none;
+    border-bottom: none;
+}
+
+.container.eight {
+    border-bottom: none;
+}
+
+.container.nine {
+    border-right: none;
+    border-bottom: none;
+}
+
+.container:hover {
+    background-color: #bbb;
+}
+
+.container.x::before {
+    content: "X";
+    color: green;
+}
+
+.container.o::before {
+    content: "O";
+    color: green;
+}
+.controls {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    position: relative;
+    top: 15px;
+}
+.controls button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history {
+    background-color: #f2c14e;
+    color: #333;
+}
+
+.play {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+.controls button:hover {
+    background-color: #333;
+    color: #fff;
+}
