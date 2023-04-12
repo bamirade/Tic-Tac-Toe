@@ -32,10 +32,48 @@ main {
 .screen {
     position: relative;
     border: 30px solid transparent;
-    border-image-source: url(screen.png);
+    border-image-source: url('./media/screen.png');
     border-image-slice: 30 fill;
     border-image-outset: 0;
     overflow: hidden;
+    display: none;
+    width: 560px;
+    height: 560px;
+    font-family: 'VT323';
+    color:green;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.screen button {
+    background: none;
+    border: none;
+    color: green;
+    font-family: 'VT323';
+}
+
+.screen.one {
+    display: flex;
+}
+
+.screen.two button {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.screen.two button {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+.screen.four img{
+    background: none;
+    height: 200px;
+    width: 200px;
 }
 
 .game {
@@ -143,4 +181,11 @@ main {
 .controls button:hover {
     background-color: #333;
     color: #fff;
+}
+
+@font-face {
+    font-family: 'VT323';
+    src: url('./media/VT323-Regular.ttf')format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
