@@ -58,9 +58,16 @@ main {
     display: flex;
 }
 
-.screen.ghistory {
+.buttcont {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.screen.ghistory,
+.screen.gmoves {
     display: none;
-    color:green;
+    color: green;
 }
 
 .screen.two button {
@@ -82,8 +89,19 @@ button {
     width: 200px;
 }
 
+.ghistory,
+.gmoves {
+    display: block;
+}
+
+.prev,
+.prevv {
+    left: 25%;
+}
+
 .game,
-.histories {
+.histories,
+.moves {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -97,7 +115,7 @@ button {
 }
 
 .container,
-.hcontainer {
+.cell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,52 +128,61 @@ button {
     transition: all 0.3s ease;
 }
 
-.hbutton {
+.hbutton,
+.mbutton {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
 .container.one,
-.hcontainer.one {
+.cell.d00,
+.cell.f00 {
     border-top: none;
     border-left: none;
 }
 
 .container.two,
-.hcontainer.two {
+.cell.d01,
+.cell.f01 {
     border-top: none;
 }
 
 .container.three,
-.hcontainer.three {
+.cell.d02,
+.cell.f02 {
     border-top: none;
     border-right: none;
 }
 
 .container.four,
-.hcontainer.four {
+.cell.d10,
+.cell.f10 {
     border-left: none;
 }
 
 .container.six,
-.hcontainer.six {
+.cell.d12,
+.cell.f12 {
     border-right: none;
 }
 
 .container.seven,
-.hcontainer.seven {
+.cell.d20,
+.cell.f20 {
     border-left: none;
     border-bottom: none;
 }
 
 .container.eight,
-.hcontainer.eight {
+.cell.d21,
+.cell.f21 {
     border-bottom: none;
 }
 
 .container.nine,
-.hcontainer.nine {
+.cell.d22,
+.cell.f22 {
     border-right: none;
     border-bottom: none;
 }
@@ -225,6 +252,13 @@ button {
     position: absolute;
     overflow-y: hidden;
     top: -25px;
+}
+
+.pl,
+.re {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @font-face {
