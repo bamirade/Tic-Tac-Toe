@@ -21,6 +21,7 @@ main {
 .crt {
     margin: 3vmin auto;
     padding: 5.5vmin;
+    padding-bottom: 10vmin;
     width: min-content;
     display: flex;
     flex-direction: column;
@@ -40,7 +41,7 @@ main {
     width: 560px;
     height: 560px;
     font-family: 'VT323';
-    color:green;
+    color: green;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -57,6 +58,11 @@ main {
     display: flex;
 }
 
+.screen.ghistory {
+    display: none;
+    color:green;
+}
+
 .screen.two button {
     font-size: 2em;
     font-weight: bolder;
@@ -70,13 +76,14 @@ button {
     cursor: pointer;
 }
 
-.screen.four img{
+.screen.four img {
     background: none;
     height: 200px;
     width: 200px;
 }
 
-.game {
+.game,
+.histories {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -89,7 +96,8 @@ button {
     max-height: 90vh;
 }
 
-.container {
+.container,
+.hcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,38 +110,52 @@ button {
     transition: all 0.3s ease;
 }
 
-.container.one {
+.hbutton {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.container.one,
+.hcontainer.one {
     border-top: none;
     border-left: none;
 }
 
-.container.two {
+.container.two,
+.hcontainer.two {
     border-top: none;
 }
 
-.container.three {
+.container.three,
+.hcontainer.three {
     border-top: none;
     border-right: none;
 }
 
-.container.four {
+.container.four,
+.hcontainer.four {
     border-left: none;
 }
 
-.container.six {
+.container.six,
+.hcontainer.six {
     border-right: none;
 }
 
-.container.seven {
+.container.seven,
+.hcontainer.seven {
     border-left: none;
     border-bottom: none;
 }
 
-.container.eight {
+.container.eight,
+.hcontainer.eight {
     border-bottom: none;
 }
 
-.container.nine {
+.container.nine,
+.hcontainer.nine {
     border-right: none;
     border-bottom: none;
 }
@@ -151,13 +173,15 @@ button {
     content: "O";
     color: green;
 }
+
 .controls {
     display: flex;
     width: 100%;
     justify-content: space-around;
     position: relative;
-    top: 15px;
+    top: 30px;
 }
+
 .controls button {
     padding: 10px 20px;
     font-size: 18px;
@@ -181,6 +205,26 @@ button {
 .controls button:hover {
     background-color: #333;
     color: #fff;
+}
+
+.crtbuttonone {
+    display: flex;
+}
+
+.crtbuttontwo {
+    display: flex;
+}
+
+#label-one {
+    position: absolute;
+    overflow-y: hidden;
+    top: -25px;
+}
+
+#label-two {
+    position: absolute;
+    overflow-y: hidden;
+    top: -25px;
 }
 
 @font-face {

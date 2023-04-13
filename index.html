@@ -37,14 +37,37 @@
                 </button>
                 <p>Play again</p>
             </div>
+            <div class="screen ghistory">
+                <div class="histories">
+                    <div class="hcontainer one"></div>
+                    <div class="hcontainer two"></div>
+                    <div class="hcontainer three"></div>
+                    <div class="hcontainer four"></div>
+                    <div class="hcontainer five"></div>
+                    <div class="hcontainer six"></div>
+                    <div class="hcontainer seven"></div>
+                    <div class="hcontainer eight"></div>
+                    <div class="hcontainer nine"></div>
+                </div>
+                <div class="hbutton">
+                    <button class="prev">Prev</button>
+                    <p class="ghistory">You have no game history</p>
+                    <button class="next">Next</button>
+                </div>
+            </div>
             <div class="controls">
                 <div class="crtbuttonone">
-                    <button class="history"></button>
-                    <img src="./media/stickyone.png" alt="labelone" height="20px">
+                    <button class="history" onclick="showHistoryScreen()"></button>
+                    <div>
+                        <img src="./media/stickyone.png" id="label-one" alt="labelone" height="75px" z-index="1"
+                            overflow="hidden">
+                    </div>
                 </div>
                 <div class="crtbuttontwo">
-                    <button class="play"></button>
-                    <img src="./media/stickytwo.png" alt="labeltwo" height="20px">
+                    <button class="play" onclick="showScreenOne()"></button>
+                    <div>
+                        <img src="./media/stickytwo.png" id="label-two" alt="labeltwo" height="75px" overflow="hidden">
+                    </div>
                 </div>
                 <span class="power-slider"></span>
             </div>

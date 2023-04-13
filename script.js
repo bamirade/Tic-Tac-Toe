@@ -167,10 +167,44 @@ playAgainButton.addEventListener("click", function () {
     containers.forEach(function (container) {
         container.classList.remove("x", "o");
     });
-    let intro = document.querySelector(".introtxt");
-    intro.textContent = "Press any key to play";
     let screenTwo = document.querySelector(".screen.two");
     screenTwo.style.display = "flex";
 });
 
+function showHistoryScreen() {
+    let historyScreen = document.querySelector(".screen.ghistory");
+    let screens = document.querySelectorAll(".screen");
+
+    screens.forEach(function (screen) {
+        if (screen !== historyScreen) {
+            screen.style.display = "none";
+        }
+    });
+    historyScreen.style.display = "flex";
+}
+
+function showScreenOne() {
+    let screenOne = document.querySelector(".screen.one");
+    let screens = document.querySelectorAll(".screen");
+
+    screens.forEach(function (screen) {
+        if (screen !== screenOne) {
+            screen.style.display = "none";
+        }
+    });
+    screenOne.style.display = "flex";
+    board = [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
+    ];
+    containers.forEach(function (container) {
+        container.classList.remove("x", "o");
+    });
+    
+}
+
+
 setInterval(introText, 500);
+
+let gameHistory = [];
