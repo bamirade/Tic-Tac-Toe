@@ -261,6 +261,23 @@ button {
     align-items: center;
 }
 
+.screen.two #my-cpu {
+    display: none;
+}
+
+.cpu-image {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(./media/NCPU.png);
+    background-size: contain;
+}
+
+.screen.two #my-cpu:checked+.cpu-image {
+    background-image: url(./media/CPU.png);
+    background-size: contain;
+}
+
 @font-face {
     font-family: 'VT323';
     src: url('./media/VT323-Regular.ttf')format('truetype');

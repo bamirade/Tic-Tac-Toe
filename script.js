@@ -14,6 +14,7 @@ containers.forEach(container => {
         let containerIndex = Array.from(containers).indexOf(container);
         let rowIndex = Math.floor(containerIndex / 3);
         let columnIndex = containerIndex % 3;
+        let checkbox = document.querySelector("#my-cpu")
 
         if (board[rowIndex][columnIndex] !== "") {
             return;
@@ -31,6 +32,9 @@ containers.forEach(container => {
 
         moveHistory.push(JSON.parse(JSON.stringify(board)));
         console.log(moveHistory);
+        if (checkbox.checked === true) {
+            makeAIMove();
+        }
     });
 });
 
@@ -119,9 +123,13 @@ function introText() {
     const intro = document.querySelector(".introtxt");
     const buttx = document.querySelectorAll(".screen.two .x");
     const butto = document.querySelectorAll(".screen.two .o");
+    const visib = document.querySelector(".cpu-image");
+    const nocont = document.querySelector(".hbutton .ghistory");
 
     if (intro.textContent.trim() === "") {
         intro.textContent = "Press any key to play";
+        visib.style.visibility = "visible"
+        nocont.style.visibility = "visible"
 
         for (let i = 0; i < buttx.length; i++) {
             buttx[i].textContent = "Play X";
@@ -129,6 +137,8 @@ function introText() {
         }
     } else if (intro.textContent.trim() === "Press any key to play") {
         intro.textContent = "\u00A0";
+        visib.style.visibility = "hidden"
+        nocont.style.visibility = "hidden"
 
         for (let i = 0; i < buttx.length; i++) {
             buttx[i].textContent = "\u00A0";
@@ -136,6 +146,8 @@ function introText() {
         }
     }
 }
+
+setInterval(introText,500)
 
 document.addEventListener("keydown", event => {
     let screenOne = document.querySelector(".screen.one");
@@ -233,7 +245,6 @@ function showScreenOne() {
     });
 }
 
-setInterval(introText, 500);
 
 let hcontainers = document.querySelectorAll(".histories");
 let currentIndex = 0;
@@ -360,3 +371,47 @@ function showMovesScreen() {
     console.log(moveHistory);
     updateMoves();
 }
+
+function getBestMove() {
+    let availableSquares = [];
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        if (moveHistory[moveHistory.length - 1][row][col] === "") {
+          availableSquares.push({ row, col });
+        }
+      }
+    }
+    return availableSquares[Math.floor(Math.random() * availableSquares.length)];
+  }
+
+function makeAIMove() {
+    let move = getBestMove();
+    console.log(move);
+    if (currentPlayer === "O") {
+        board[move.row][move.col] = "O";
+        let containerIndex = move.row * 3 + move.col;
+        containers[containerIndex].classList.add("o");
+        if (checkWin() || checkDraw()) {
+            endGame();
+            return;
+        }
+
+    } else if (currentPlayer === "X") {
+        board[move.row][move.col] = "X";
+        let containerIndex = move.row * 3 + move.col;
+        containers[containerIndex].classList.add("x");
+        if (checkWin() || checkDraw()) {
+            endGame();
+            return;
+        }
+    }
+    gameHistory.push(JSON.parse(JSON.stringify(board)));
+    currentPlayer = currentPlayer === "O" ? "X" : "O";
+    moveHistory.push(JSON.parse(JSON.stringify(board)));
+    console.log(moveHistory);
+}
+
+const audioFile = './media/retro.mp3';
+
+const preload = new Audio();
+preload.src = audioFile;
