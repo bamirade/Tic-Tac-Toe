@@ -65,7 +65,7 @@ main {
 }
 
 .screen.ghistory,
-.screen.gmoves {
+.screen.gmoves{
     display: none;
     color: green;
 }
@@ -90,7 +90,8 @@ button {
 }
 
 .ghistory,
-.gmoves {
+.gmoves,
+.reresult {
     display: block;
 }
 

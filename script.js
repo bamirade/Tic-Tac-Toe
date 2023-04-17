@@ -95,7 +95,7 @@ function endGame() {
     });
 
     let result = document.querySelector(".condition");
-    let reresult = document.querySelector(".reresult");
+    let reresult = document.querySelector(".screen .reresult");
 
     if (checkWin()) {
         result.textContent = currentPlayer + " wins!";
@@ -124,11 +124,13 @@ function introText() {
     const butto = document.querySelectorAll(".screen.two .o");
     const visib = document.querySelector(".cpu-image");
     const nocont = document.querySelector(".hbutton .ghistory");
+    let reresult = document.querySelector(".screen .reresult");
 
     if (intro.textContent.trim() === "") {
         intro.textContent = "Press any key to play";
         visib.style.visibility = "visible"
         nocont.style.visibility = "visible"
+        reresult.style.visibility = "visible"
 
         for (let i = 0; i < buttx.length; i++) {
             buttx[i].textContent = "Play X";
@@ -138,6 +140,7 @@ function introText() {
         intro.textContent = "\u00A0";
         visib.style.visibility = "hidden"
         nocont.style.visibility = "hidden"
+        reresult.style.visibility = "hidden"
 
         for (let i = 0; i < buttx.length; i++) {
             buttx[i].textContent = "\u00A0";
@@ -146,7 +149,7 @@ function introText() {
     }
 }
 
-setInterval(introText,500)
+setInterval(introText,500);
 
 document.addEventListener("keydown", event => {
     let screenOne = document.querySelector(".screen.one");
