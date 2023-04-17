@@ -31,7 +31,6 @@ containers.forEach(container => {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
 
         moveHistory.push(JSON.parse(JSON.stringify(board)));
-        console.log(moveHistory);
         if (checkbox.checked === true) {
             makeAIMove();
         }
@@ -218,7 +217,6 @@ function showHistoryScreen() {
 
     currentIndex = 0;
     historyScreen.style.display = "flex";
-    console.log(gameHistory);
     updateHistory();
 }
 
@@ -260,8 +258,6 @@ function updateHistory() {
         return;
     }
 
-    let hcontainerIndex = 0;
-
     hcontainers.forEach(hcontainer => {
         let history = gameHistory[currentIndex];
         hcontainer.innerHTML = "";
@@ -274,7 +270,6 @@ function updateHistory() {
         }
 
         desc.textContent = `${winHistory[currentIndex]}`;
-        hcontainerIndex++;
     });
 
     if (currentIndex === 0) {
@@ -318,8 +313,6 @@ function updateMoves() {
         return;
     }
 
-    let moveContainerIndex = 0;
-
     moveContainers.forEach(moveContainer => {
         let moves = moveHistory[moveIndex];
         moveContainer.innerHTML = "";
@@ -331,7 +324,6 @@ function updateMoves() {
             }
         }
 
-        moveContainerIndex++;
     });
 
     if (moveIndex === 0) {
@@ -362,13 +354,11 @@ document.querySelector(".nextt").addEventListener("click", () => {
 });
 
 function showMovesScreen() {
-    console.log("showMovesScreen() called");
     let movesScreen = document.querySelector(".screen.gmoves");
     let screens = document.querySelector(".screen.four");
 
     screens.style.display = "none";
     movesScreen.style.display = "flex";
-    console.log(moveHistory);
     updateMoves();
 }
 
@@ -386,7 +376,6 @@ function getBestMove() {
 
 function makeAIMove() {
     let move = getBestMove();
-    console.log(move);
     if (currentPlayer === "O") {
         board[move.row][move.col] = "O";
         let containerIndex = move.row * 3 + move.col;
@@ -405,13 +394,23 @@ function makeAIMove() {
             return;
         }
     }
-    gameHistory.push(JSON.parse(JSON.stringify(board)));
     currentPlayer = currentPlayer === "O" ? "X" : "O";
     moveHistory.push(JSON.parse(JSON.stringify(board)));
-    console.log(moveHistory);
 }
 
 const audioFile = './media/retro.mp3';
 
 const preload = new Audio();
 preload.src = audioFile;
+
+
+const imageFiles = ['./media/NCPU.png', './media/CPU.png'];
+
+const preloadImages = () => {
+  imageFiles.forEach((imageFile) => {
+    const preload = new Image();
+    preload.src = imageFile;
+  });
+};
+
+preloadImages();
